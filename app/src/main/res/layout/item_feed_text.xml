@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.smartSense.feed.dataModels.FeedData" />
+    </data>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="6dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="4dp"
+        android:backgroundTint="@color/white"
+        >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="6dp"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/incToplayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/include_top_layout"
+            app:viewModel="@{viewModel}"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFeedText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingStart="8dp"
+            android:text="@{viewModel.data.feedText}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/incToplayout"
+            tools:text="feed text" />
+
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFeedText"
+            layout="@layout/include_bottom_layout"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

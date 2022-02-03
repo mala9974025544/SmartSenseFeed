@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.smartSense.feed.dataModels.FeedData" />
+    </data>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="6dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="4dp"
+        android:backgroundTint="@color/white"
+        >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="6dp"
+        android:layout_height="wrap_content">
+
+
+        <include
+            android:id="@+id/incToplayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/include_top_layout"
+            app:viewModel="@{viewModel}"/>
+        <ImageView
+            android:id="@+id/feedThumbnailView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/incToplayout"
+             />
+
+
+        <com.smartSense.feed.grid.SSGridView
+            android:id="@+id/staggeredGridView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/feedThumbnailView"
+            app:layout_constraintEnd_toEndOf="@id/feedThumbnailView"
+            app:layout_constraintStart_toStartOf="@id/feedThumbnailView"
+            app:layout_constraintTop_toTopOf="@id/feedThumbnailView"
+            tools:background="@color/grey"/>
+
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/staggeredGridView"
+            layout="@layout/include_bottom_layout"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
