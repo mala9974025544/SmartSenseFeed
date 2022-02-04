@@ -12,7 +12,9 @@ import android.widget.*
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.smartSense.feed.R
 import com.smartSense.feed.dataModels.FeedImage
 
@@ -77,10 +79,13 @@ class SSGridViewAdapter(
                 staggeredDataModel.top!!.heightPercent
             )
             holder.topViewContainer.layoutParams = params
-            holder.topTitleView.text = "4+"
+            //holder.topTitleView.text = "4+"
             Glide.with(holder.topImageView.context)
                 .load(staggeredDataModel.top!!.staggeredData?.imageUri)
-                .apply(RequestOptions().placeholder(R.drawable.ic_placeholder))
+                .apply(RequestOptions().placeholder(R.drawable.ic_placeholder).diskCacheStrategy(
+                    DiskCacheStrategy.DATA))
+                // .fitCenter() )
+                //.skipMemoryCache(true))
                 .into(holder.topImageView)
             holder.topViewContainer.setOnClickListener {
                 listener?.onStaggeredItemClick(
@@ -97,7 +102,10 @@ class SSGridViewAdapter(
             holder.bottomTitleView.text = "+4"
             Glide.with(holder.bottomImageView.context)
                 .load(staggeredDataModel.bottom!!.staggeredData!!.imageUri)
-                .apply(RequestOptions().placeholder(R.drawable.ic_placeholder))
+                .apply(RequestOptions().placeholder(R.drawable.ic_placeholder).diskCacheStrategy(
+                    DiskCacheStrategy.DATA))
+                // .fitCenter() )
+                //.skipMemoryCache(true))
                 .into(holder.bottomImageView)
             holder.bottomViewContainer.setOnClickListener {
                 listener?.onStaggeredItemClick(

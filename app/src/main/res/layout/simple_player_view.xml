@@ -17,7 +17,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:surface_type="surface_view"
         app:use_controller="true"
-        app:show_buffering="always"
+        app:show_next_button="false"
+        app:show_rewind_button="false"
+        app:show_previous_button="false"
+        app:keep_content_on_player_reset="false"
+        app:show_fastforward_button="false"
+        app:shutter_background_color="@android:color/transparent"
+        app:show_buffering="when_playing"
+         app:use_artwork="true"
+        app:unplayed_color="@color/purple_200"
         app:show_shuffle_button="false" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

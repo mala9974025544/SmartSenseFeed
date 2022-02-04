@@ -30,8 +30,8 @@ class SSGridView @JvmOverloads constructor(
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         mStaggeredRecyclerView!!.layoutManager = layoutManager
         mStaggeredRecyclerView!!.layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
         )
         addView(mStaggeredRecyclerView)
     }

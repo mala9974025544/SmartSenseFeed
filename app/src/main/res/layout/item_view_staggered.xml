@@ -16,7 +16,7 @@
             android:id="@+id/topImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"/>
+            android:scaleType="fitXY"/>
 
         <LinearLayout
             android:id="@+id/topView"
@@ -61,7 +61,7 @@
             android:id="@+id/bottomView"
             android:layout_alignBottom="@+id/bottomImageView"
             android:layout_alignParentBottom="true"
-            android:background="#8C000000"
+            android:background="#CC000000"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
